@@ -3,8 +3,8 @@ import pandas as pd
 import joblib
 
 # Load model and scaler
-model = joblib.load("model.pkl")
-scaler = joblib.load("scaler.pkl")
+model = joblib.load("D:/Intern/model.pkl")
+scaler = joblib.load("D:/Intern/scaler.pkl")
 
 # 🚀 Page Configuration
 st.set_page_config(page_title="Student Performance Predictor", page_icon="🎓", layout="centered")
@@ -55,11 +55,11 @@ input_scaled = scaler.transform(input_data)
 st.markdown("### 🔮 Prediction Result")
 if st.button("📊 Predict Performance"):
     prediction = model.predict(input_scaled)[0]
-    st.success(f"🎓 Predicted Output: **{prediction}**")
-
+    label_map = {0: "Slow Bloomer", 1: "Good Going", 2: "Fast Bloomer"}
+    st.success(f"🎓 Predicted Output: **{label_map.get(prediction, prediction)}**")
+    
     # Optionally add helpful note
     st.markdown(f"<div style='background-color:#EDF6FF; padding:20px; border-radius:10px; color:#0B5394; text-align:center;'>🎯 <strong>Predicted Output:</strong> {prediction}</div>", unsafe_allow_html=True)
 
 st.markdown("<hr style='border-top: 1px solid #BBB;'>", unsafe_allow_html=True)
 st.markdown("<p style='text-align: center; font-size: 13px; color:#888;'>Made with ❤️ by Srisubitsa | Powered by Machine Learning + Streamlit</p>", unsafe_allow_html=True)
-
