@@ -3,8 +3,8 @@ import pandas as pd
 import joblib
 
 # Load model and scaler
-model = joblib.load("D:/Intern/model.pkl")
-scaler = joblib.load("D:/Intern/scaler.pkl")
+model = joblib.load("model.pkl")
+scaler = joblib.load("scaler.pkl")
 
 # 🚀 Page Configuration
 st.set_page_config(page_title="Student Performance Predictor", page_icon="🎓", layout="centered")
